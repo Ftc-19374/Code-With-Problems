@@ -16,24 +16,25 @@ public class Color extends LinearOpMode {
     DcMotor motor2;
     DistanceSensor s2;
 
-@Override
-public void runOpMode() throws InterruptedException {
-    // Motors defined
-    motor1 = hardwareMap.dcMotor.get("motor1");
-    motor2 = hardwareMap.dcMotor.get("motor2");
-    //These sensors defined
-    s1 = hwMap.get(ColorSensor.class, "ColorSense");
-    s2 = hwMap.get(DistanceSensor.class, "DistanceSense");
-    waitForStart();
-    while(opModeIsActive()) {
-        // Move motor a little bit
-        //Checking yellow value
-        if (s1.red() > s1.blue() && s1.green() > s1.blue()) {
-            //Moves motors forward
-            motor1.setPower(-1.00);
-            motor2.setPower(1.00);
+    @Override
+    public void runOpMode() throws InterruptedException {
+        // Motors defined
+        motor1 = hardwareMap.dcMotor.get("motor1");
+        motor2 = hardwareMap.dcMotor.get("motor2");
+        //These sensors defined
+        s1 = hardwareMap.get(ColorSensor.class, "ColorSense");
+        s2 = hardwareMap.get(DistanceSensor.class, "DistanceSense");
+        waitForStart();
+        while(opModeIsActive()) {
+            // Move motor a little bit
+            //Checking yellow value
+            if (s1.red() > s1.blue() && s1.green() > s1.blue()) {
+                //Moves motors forward
+                motor1.setPower(-1.00);
+                motor2.setPower(1.00);
+            }
         }
+        motor1.setPower(0.00);
+        motor2.setPower(0.00);
     }
-    motor1.setPower(0.00);
-    motor2.setPower(0.00);
 }
