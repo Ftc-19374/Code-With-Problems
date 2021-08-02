@@ -15,9 +15,9 @@ public class Color extends LinearOpMode {
     DcMotor motor1;
     DcMotor motor2;
     DistanceSensor s2;
-}
+
 @Override
-public void init(HardwareMap hwMap) throws InterruptedException {
+public void runOpMode() throws InterruptedException {
     // Motors defined
     motor1 = hardwareMap.dcMotor.get("motor1");
     motor2 = hardwareMap.dcMotor.get("motor2");
